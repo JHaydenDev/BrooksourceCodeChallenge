@@ -6,8 +6,15 @@ const Header = () => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
+    let throttleTimeout;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      if (!throttleTimeout) {
+        throttleTimeout = setTimeout(() => {
+          setIsScrolled(window.scrollY > 50);
+          throttleTimeout = null;
+        }, 200); // Adjust the throttle time as needed
+      }
     };
 
     const handleResize = () => {
@@ -32,8 +39,8 @@ const Header = () => {
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center py-4">
-            <div className="flex items-center justify-self-start">
-              <div className="p-2 mr-36">
+            <div className="flex items-center">
+              <div className="p-2 ml-6 mr-32">
                 <svg
                   width="22"
                   height="20"
@@ -71,7 +78,7 @@ const Header = () => {
                 </a>
               </div>
             </div>
-            <div className="flex items-center justify-self-end">
+            <div className="flex items-center justify-end">
               <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs rounded-full mr-4 h-6 w-24">
                 Subscribe
               </button>
@@ -108,7 +115,6 @@ const Header = () => {
           Sports
         </div>
       </header>
-
       <div
         id="links-container"
         className={`w-full flex justify-center ${
