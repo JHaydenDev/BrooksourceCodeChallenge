@@ -16,11 +16,18 @@ const App = () => {
         >
           ATLANTA BRAVES
         </a>
-        <h1 className="text-3xl font-bold mb-4">
+        <h1
+          className="text-5xl font-bold mb-4 font-serif
+"
+        >
           No Braves broadcasts? Possible solutions and a lot of frustration to
           Comcast/Bally’s dispute
         </h1>
-        <div className="font-bold">
+        <div
+          className="font-medium text-lg	
+          font-serif pb-4
+"
+        >
           Reponses to AJC callout for how customers are watching the Braves.
         </div>
         <img
@@ -29,7 +36,7 @@ const App = () => {
           }
           alt={"image 1"}
         />
-        ;
+
         <p className="mb-4">
           There are two ways for fans to watch the Atlanta Braves this season
           without access to Bally Sports. The first one comes with the least

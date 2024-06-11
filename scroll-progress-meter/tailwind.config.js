@@ -6,6 +6,7 @@ module.exports = {
       colors: {
         "link-blue": "#004fff",
         "bold-text": "#282828",
+        "light-grey": "#dadada",
       },
     },
   },
