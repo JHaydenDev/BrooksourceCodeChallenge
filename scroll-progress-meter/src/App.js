@@ -34,7 +34,7 @@ const App = () => {
           src={
             "https://www.ajc.com/resizer/0A3PTLKPeZHrnPa8ZafX-j7yffg=/850x480/cloudfront-us-east-1.images.arcpublishing.com/ajc/F3CSKSVTK57KAEH4RO4YHBWBKA.JPG"
           }
-          alt={"image 1"}
+          alt="1"
         />
 
         <p className="my-6 text-caption-text">

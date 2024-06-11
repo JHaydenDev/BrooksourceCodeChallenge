@@ -3,53 +3,75 @@ import "./index.css";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
     <>
       <header
-        className={`bg-white  sticky top-0 z-50 ${
-          isScrolled ? "scrolled" : ""
-        }`}
+        className={`bg-white sticky top-0 z-50 ${isScrolled ? "scrolled" : ""}`}
       >
         <div className="max-w-7xl mx-auto">
           <div className="flex justify-between items-center py-4">
-            <div className="p-2 mr-4 ml-8">
-              <svg
-                width="22"
-                height="20"
-                viewBox="0 0 22 20"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M0 0h22v2.444H0V0zm0 8.556h14.667V11H0V8.556zm0 8.555h22v2.445H0V17.11z"
-                  fill="#282828"
-                ></path>
-              </svg>
+            <div className="flex items-center justify-self-start">
+              <div className="p-2 mr-36">
+                <svg
+                  width="22"
+                  height="20"
+                  viewBox="0 0 22 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0h22v2.444H0V0zm0 8.556h14.667V11H0V8.556zm0 8.555h22v2.445H0V17.11z"
+                    fill="#282828"
+                  ></path>
+                </svg>
+              </div>
             </div>
-            <div className="flex items-center pl-6">
+            <div className="flex items-center justify-center">
               <div className="flex items-center">
                 <a href="https://www.ajc.com/">
-                  <img
-                    src={
-                      "https://www.ajc.com/pf/resources/logos/AJC/logo-full-redesign.svg?d=1486"
-                    }
-                    alt={"AJC logo"}
-                    className="h-10"
-                  />
+                  {isSmallScreen ? (
+                    <img
+                      src={
+                        "https://www.ajc.com/pf/resources/logos/AJC/logo-short.svg?d=1486"
+                      }
+                      alt={"AJC logo"}
+                      className="h-10"
+                    />
+                  ) : (
+                    <img
+                      src={
+                        "https://www.ajc.com/pf/resources/logos/AJC/logo-full-redesign.svg?d=1486"
+                      }
+                      alt={"AJC logo"}
+                      className="h-10"
+                    />
+                  )}
                 </a>
               </div>
             </div>
-            <div className="flex items-center justify-end">
+            <div className="flex items-center justify-self-end">
               <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold text-xs rounded-full mr-4 h-6 w-24">
                 Subscribe
               </button>
