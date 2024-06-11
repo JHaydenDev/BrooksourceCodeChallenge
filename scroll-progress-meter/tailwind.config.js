@@ -7,6 +7,7 @@ module.exports = {
         "link-blue": "#004fff",
         "bold-text": "#282828",
         "light-grey": "#dadada",
+        "caption-text": "#9b9b9b",
       },
     },
   },

@@ -37,6 +37,12 @@ const App = () => {
           alt={"image 1"}
         />
 
+        <p className="my-6 text-caption-text">
+          John Gonzalez reacts in the ninth inning at the Braves home opening
+          day game versus the Diamondbacks at Truist Park in Atlanta on Friday,
+          April 5, 2024. (Arvin Temkar / arvin.temkar@ajc.com)
+        </p>
+
         <p className="mb-4">
           There are two ways for fans to watch the Atlanta Braves this season
           without access to Bally Sports. The first one comes with the least
